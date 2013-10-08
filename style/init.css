@@ -1,0 +1,70 @@
+html{
+    background: url("dubstep_min.jpg") no-repeat center center;
+    background-size: cover;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding:0;margin:0;
+}
+body{
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+/* STEP 2 */
+#loader {
+    margin-left: -100px;
+    margin-top: -50px;
+    position: absolute;
+    top:50%; left:50%;
+    width: 200px;height: 100px;
+    background: black;
+    -webkit-box-shadow: 0 0 25px 25px rgba(0,0,0,1);
+}
+#ajaxloader {
+    top: 25%;
+    -webkit-animation: spin 1s linear infinite;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 8px solid #fff;
+    border-right-color: transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 25px 2px #eee;
+}
+#text_wrapper {
+	display: table;
+	position: absolute;
+	top:0;
+	left: 60px;
+	width: 140px;
+	height: 100px;
+}
+#version {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: justify;
+  width: 90px;
+  padding: 10px;
+  color: white;
+  font-family: Consolas, 'Ubuntu mono', monospace;
+}
+#version:active:after {
+  content: "DEVELOPMENT";
+  color: red;
+}
+#text{
+    vertical-align: middle;
+    display: table-cell;
+    color:white;
+    font-family: Consolas, 'Ubuntu mono', Ubuntu, sans-serif;
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg);   opacity: .8; }
+    50%  { -webkit-transform: rotate(180deg); opacity: 1.0; }
+    to   { -webkit-transform: rotate(360deg); opacity: .8; }
+}

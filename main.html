@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Cloudx OS</title>
+        <script src="system/init.js" async></script>
+        <link href="style/init.css" rel="stylesheet"/>
+        <link rel="shortcut icon" href="//cloudx.cx/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <div id="version">
+            Cloudx OS <br>
+            ver 3.3.0<font color="red">d</font>
+        </div>
+        <div id="auth" style="display: none;">
+            <script src="style/passfield.min.js"></script>
+            <link rel="stylesheet" href="style/passfield.min.css"/>
+            <link rel="stylesheet" href="style/form.css">
+            <input type="text" id="login" placeholder="логин" pattern="[A-Za-z0-9]{3,16}">
+            <div id="mypass-wrap" class="control-group" onload="var passField = new PassField.Field('mypass',{showWarn:false});">
+                <input type="password" id="pass" placeholder="пароль" id="mypass" pattern=".{6,}">
+            </div>
+            <button id="ok">OK!</button>
+            <button>Регистрация</button>
+        </div>
+    </body>
+</html>

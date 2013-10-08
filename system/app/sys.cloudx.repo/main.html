@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>No Title</title>
+        <script src="//cloudx.cx/lib-3.3.0-alpha.js"></script>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body class="cx-ui">
+        <div class="cx-ui-panel-horizontal" id="panel">
+            <span class="cx-ui-clickable cx-ui-hoverable" id="settings-button">Мои приложения</span>
+            <span class="cx-ui-clickable cx-ui-hoverable">Установить извне</span>
+        </div>
+        <div class="cx-ui-list" id="myapps">
+            <div class="cx-ui-list-item cx-ui-hoverable cx-ui-clickable file">
+                <span class="cx-ui-icon icon" style="background-image: url('unknown.png')"></span>
+                <span class="name">Debug tool</span>
+                <span class="size">Cloudx</span>
+            </div>
+            <div class="cx-ui-list-item cx-ui-hoverable cx-ui-clickable folder">
+                <span class="cx-ui-icon icon" style="background-image: url('dir.png')"></span>
+                <span class="name">Fmanager</span>
+                <span class="size">Cloudx</span>
+            </div>
+        </div>
+        <div class="cx-ui-list hidden" id="allapps">
+            <div class="cx-ui-list-item">
+                <span class="name"></span>
+            </div>
+        </div>
+    </body>
+</html>

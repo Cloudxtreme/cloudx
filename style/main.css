@@ -1,0 +1,239 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Consolas, 'Ubuntu mono', monospace;
+}
+#ghost {
+  border: dashed black 1px;
+  position: absolute;
+  display: block;
+  z-index: 999999;
+} 
+#select {
+    background: rgba(255, 110, 97, 0.4);
+    display: none;
+    position: absolute;
+    border: 1px solid red;
+    -webkit-transition: opacity ease 300ms;
+    transition: opacity ease 100ms;
+}
+#dnd_fix {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 999998;
+  display: none;
+  top: 0;
+  left: 0;
+}
+#desktop {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url('http://alpha.cloudx.cx/style/dubstep.jpg');
+}
+#dockbar {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 40px;
+  border-top: 1px black solid;
+  background-color: rgba(51, 51, 51, 0.4);
+}
+.animated {
+  -webkit-transition: all ease 0.4s;
+     -moz-transition: all ease 0.4s;
+       -o-transition: all ease 0.4s;
+          transition: all ease 0.4s;
+}
+#dockbar .item {
+  float: left;
+}
+#dockbar .img {
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('http://alpha.cloudx.cx/style/app.png');
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  padding: 0 10px;
+}
+#dockbar .img.last-of-type {
+  border: 0;
+}
+#dockbar .img:hover ~ .processes {
+  opacity: 1;
+  visibility: visible;
+}
+#dockbar .processes {
+  overflow: hidden;
+  border: solid black 2px;
+  background-color: rgb(51, 51, 51);
+  background-color: rgba(51, 51, 51, 0.4);
+  position: absolute;
+  height: 110px;
+  left: 0;
+  bottom: 60px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-transition: all ease 0.3s 0.3s;
+     -moz-transition: all ease 0.3s 0.3s;
+       -o-transition: all ease 0.3s 0.3s;
+          transition: all ease 0.3s 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+#dockbar .processes:hover {
+  opacity: 1;
+  visibility: visible;
+}
+#dockbar .processes .process {
+  float: left;
+  width: 110px;
+  height: 100%;
+  border-left: 1px solid black;
+  box-sizing: border-box;
+}
+#dockbar .processes .process:first-of-type {
+  border-left: 0;
+}
+#dockbar .processes .process:hover {
+  background-color: rgb(255, 99, 71);
+  background-color: rgba(255, 99, 71, 0.2);
+  border: 1px solid #ff3814;
+}
+#dockbar .processes .process:active {
+  background-color: rgb(255, 99, 71);
+  background-color: rgba(255, 99, 71, 0.4);
+  border: 1px solid #ff3814;
+}
+#dockbar .processes .process .title {
+  margin: 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+}
+#dockbar .processes .process .icon {
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('http://alpha.cloudx.cx/style/app.png');
+  width: 64px;
+  height: 64px;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+.popup {
+	position: absolute;
+	display: inline-block;
+	padding: 10px 30px;
+	left: 50%;
+	background-color: #000;
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 0 0 10px 10px;
+	color: #FFF;
+	text-align: center;
+	font-famity: Ubuntu, Ubuntu Mono, Consolas, monospace;
+}
+.popup:hover {
+	opacity: 0.5;
+}
+.anim {
+	-webkit-transition: top ease 400ms, opacity ease 300ms;
+	   -moz-transition: top ease 400ms, opacity ease 300ms;
+	     -o-transition: top ease 400ms, opacity ease 300ms;
+	        transition: top ease 400ms, opacity ease 300ms;
+}
+.window {
+  height: 200px;
+  width: 400px;
+  border: solid black 1px;
+  display: block;
+  position: absolute;
+  min-height: 60px;
+  min-width: 60px;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: visible;
+}
+.window .header {
+  background: rgba(0, 0, 0, 0.8);
+  position: static;
+  display: block;
+  height: 32px;
+}
+.window .header * {
+  display: inline-block;
+  float: left;
+}
+.window .header .icon {
+  width: 32px;
+  height: 32px;
+  background: url('http://alpha.cloudx.cx/style/app.png') no-repeat center center;
+  background-size: contain;
+}
+.window .header .title {
+  color: white;
+  padding: 0.4em;
+  max-width: 80%;
+  overflow: hidden;
+}
+.window .header .button {
+  float: right;
+  width: 16px;
+  height: 16px;
+}
+.window .header .button.close {
+  background: #990000;
+}
+.window .header .button.maximize {
+  background: #009900;
+}
+.window .header .button.minimize {
+  background: #999900;
+}
+.window .body {
+  position: static;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  box-sizing: border-box;
+  padding-top: 32px;
+}
+.window .body iframe {
+  border: 0px;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.window .resizer {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  cursor: se-resize;
+}
+.window .resizer:hover {
+	width: 40px;
+	height: 40px;
+	right: -20px;
+	bottom: -20px;
+}
+.window .resizer:active {
+  width: 1000px;
+  height: 1000px;
+  position: absolute;
+  bottom: -500px;
+  right: -500px;
+  cursor: se-resize;
+}

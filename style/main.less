@@ -1,0 +1,228 @@
+// colors
+@dock: fade(lighten(black, 20%), 40%); // gray with opacity
+@selection: tomato;
+
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Consolas, 'Ubuntu mono', monospace;
+}
+
+// by IDs
+#ghost {
+    border: dashed black 1px;
+    position: absolute;
+    display: block;
+    z-index: 999999;
+}
+#dnd_fix {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 999998;
+  display: none;
+  top: 0;
+  left: 0;
+}
+#desktop {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  // paulll's theme
+  background-image: url('dubstep.jpg');
+}
+
+#dockbar {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 40px;
+  border-top: 1px black solid;
+  background-color: @dock;
+}
+
+// by classes
+
+
+.animated {
+  -webkit-transition: all ease 0.4s;
+}
+
+// hover dock effect
+#dockbar {
+  .item {
+    float: left;
+  }
+
+  .img {
+
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('app.png');
+
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+    padding: 0 10px;
+    &.last-of-type {
+      border: 0;
+    }
+  }
+  .img:hover ~ .processes {
+    opacity: 1;
+    visibility: visible;
+  }
+  .processes {
+    overflow: hidden;
+
+    border: solid black 2px;
+    background-color: @dock;
+
+    position: absolute;
+    height: 110px;
+    left: 0;
+    bottom: 60px;
+    width: 100%;
+
+    box-sizing: border-box;
+
+    -webkit-transition: all ease 0.3s 0.3s;
+
+    opacity: 0;
+    visibility: hidden;
+
+    &:hover {
+      opacity: 1;
+      visibility: visible;
+    }
+    .process {
+      float: left;
+      width: 110px;
+      height: 100%;
+
+      border-left: 1px solid black;
+      box-sizing: border-box;
+
+      &:first-of-type {
+        border-left: 0;
+      }
+      &:hover {
+        background-color: fade(@selection, 20%);
+        border: 1px solid darken(@selection, 10%);
+      }
+      &:active {
+        background-color: fade(@selection, 40%);
+        border: 1px solid darken(@selection, 10%);
+      }
+      .title {
+        margin: 0 2px;
+        whitespace: nowrap;
+        overflow: hidden;
+        text-align: center;
+      }
+      .icon {
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url('app.png');
+        width: 64px;
+        height: 64px;
+        margin-left: 20px;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+.window {
+
+  //
+
+  height: 200px;
+  width: 400px;
+  border: solid black 1px;
+
+  //
+  display: block;
+  position: absolute;
+  min-height: 60px;
+  min-width: 60px;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: visible;
+
+  .header {
+    background: rgba(0,0,0,0.8);;
+    position: static;
+    display:block;
+    height: 32px;
+    * {
+      display: inline-block;
+      float: left;
+    }
+    .icon {
+      width: 32px;
+      height: 32px;
+      background: url('app.png') no-repeat center center;
+      background-size: contain;
+    }
+    .title {
+      color: white;
+      padding: 0.4em;
+      max-width: 80%;
+      overflow: hidden;
+    }
+    .button {
+      float: right;
+      width: 16px;
+      height: 16px;
+      &.close {
+        background: darken(red, 20%);
+      }
+      &.maximize {
+        background: darken(lime, 20%);
+      }
+      &.minimize {
+        background: darken(yellow, 20%);
+      }
+    }
+  }
+  .body {
+    position: static;
+    display: block;
+    height: 100%; width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    box-sizing: border-box;
+    padding-top: 32px;
+    iframe {
+      border: 0px;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  .resizer {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    cursor: nw-resize;
+    &:hover {
+      width: 100px;
+      height: 100px;
+      bottom: -50px;
+      right: -50px;
+    }
+  }
+}
